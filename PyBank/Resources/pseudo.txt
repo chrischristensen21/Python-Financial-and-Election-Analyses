@@ -1,9 +1,9 @@
 
 total_profit_losses = 0
-current = 0
-last = 0
+current_month = 0
+previous_month = 0
 
-total_change
+total_change = 0
 months = 0
 
 # loop through all of the rows in the csv
@@ -16,11 +16,11 @@ for row in reader:
   current = int(row[1])
 
   if months > 1:
-    change = current - last
+      change = current - last
 
-    total_change = total_change + change
+      total_change = total_change + change
 
-  last = int(row[1])
+  previous_month = int(row[1])
 
 
   average_change = total_change / (months - 1) 
