@@ -35,17 +35,21 @@ for key, value in candidates.items():
   percent_vote = (value / total_votes) * 100
   percent_vote_rounded = round(percent_vote,4)
   print(f'{key} {percent_vote_rounded} % ({value})')
+
+  file_name = "pypoll.txt"
+  with open(file_name, "w") as txt_file:
+
+    txt_file.write(f'            Election Results\n')
+    txt_file.write(f'-----------------------------------------\n')
+    txt_file.write(f'Total Number of Votes Cast: {total_votes}\n') 
+    txt_file.write(f'{key} {percent_vote_rounded} % ({value})\n')
+    txt_file.write(f'-----------------------------------------\n')  
+    txt_file.write(f'Winner: {winner_name} {winner_count}\n')
+    txt_file.write(f'-----------------------------------------\n')
+  
+
 print(f'-----------------------------------------')  
 print(f'Winner: {winner_name} {winner_count}')
 print(f'-----------------------------------------')
 
-file_name = "pypoll.txt"
-with open(file_name, "w") as txt_file:
 
-  txt_file.write(f'            Election Results\n')
-  txt_file.write(f'-----------------------------------------\n')
-  txt_file.write(f'Total Number of Votes Cast: {total_votes}\n') 
-  txt_file.write(f'{key} {percent_vote_rounded} % ({value})\n')
-  txt_file.write(f'-----------------------------------------\n')  
-  txt_file.write(f'Winner: {winner_name} {winner_count}\n')
-  txt_file.write(f'-----------------------------------------\n')
